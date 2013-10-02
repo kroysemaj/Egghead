@@ -1,61 +1,24 @@
 /**
-* superApp Module
+* ChoreApp Module
 *
 * Description
 */
-var app = angular.module('superApp', []);
+var app = angular.module('ChoreApp', []);
 
-app.directive('superhero', function () {
-	return {
-		restrict: "E",
-		scope:{},
-		controller: function ($scope) {
-			$scope.abilities = [];
-
-			this.addStrength = function () {
-				$scope.abilities.push("strength")
-			}
-
-			this.addSpeed = function () {
-				$scope.abilities.push("speed")
-			}
-
-			this.addFlight = function () {
-				$scope.abilities.push("Flight")
-			}
-
-		},
-		link: function (scope, element) {
-			element.bind("mouseenter", function (){
-				console.log(scope.abilities);
-			})
-		}
-	}
-});
-
-app.directive("strength", function() {
-	return {
-		require:"superhero",
-		link: function(scope, element, attrs, superheroCtrl) {
-			superheroCtrl.addStrength();
-		}
+app.controller('ChoreCtrl', function ($scope) {
+	$scope.logChore = function (chore) {
+		console.log(chore + ' is done!');
 	}
 })
 
-app.directive("speed", function() {
-	return {
-		require:"superhero",
-		link: function(scope, element, attrs, superheroCtrl) {
-			superheroCtrl.addSpeed();
-		}
-	}
-})
-
-app.directive("flight", function() {
-	return {
-		require:"superhero",
-		link: function(scope, element, attrs, superheroCtrl) {
-			superheroCtrl.addFlight();
-		}
-	}
-})
+app.directive('kid', function(){
+		return {
+			scope:{
+				done:'&'
+			}, 
+			restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
+			template: '<div><input type="text" ng-model="chore"> </div>' +
+			' <div> {{chore}} </div>'   + 
+			' <div class="btn btn-primary" ng-click="done({chore:chore})"> I\'m done</div>',
+		};
+	});	

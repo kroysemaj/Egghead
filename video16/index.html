@@ -7,15 +7,10 @@
 
 <body>
 
-<div class="container" ng-app="superApp">
-
-	<h1>Directive to Directive </h1>
-
-	<superhero class="btn btn-primary" strength speed flight>Supermans</superhero>
-	<superhero class="btn btn-primary" speed>The Flash</superhero>
-	<superhero class="btn btn-primary" flight strength>Thor</superhero>
-
-
+<div ng-app="ChoreApp">
+	<div ng-controller="ChoreCtrl">
+		<kid done="logChore(chore)"></kid>
+	</div>
 </div>
 
 <script type="text/javascript" src="lib/angular-1.0.1.min.js"></script>
