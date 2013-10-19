@@ -24,7 +24,7 @@ app.directive('phone', function () {
 		'<div class="btn btn-primary" ng-click="makeCall({number:number, message:value})">Call Home</div></div>',
 
 		link: function (scope) {
-			scope.networks = ["Verizon", "AT&T", "Sprint"];
+			scope.networks = ["Verizon", "AT&T", "Sprint"]
 			scope.network = scope.networks[0]
 		}
 	}
