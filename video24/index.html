@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS Tutorial</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="base.css">
+</head>
+
+<body class="container">
+
+<h1>Building Zippy</h1>
+
+<div ng-app="theApp" >
+  <input type="text" ng-model="model.title">
+	<input type="text" ng-model="model.stuff">
+
+  <zippy title="{{model.title}}">
+
+    behold, some {{model.stuff}}!!
+  
+  </zippy>
+
+</div>
+
+
+<script type="text/javascript" src="lib/angular-1.0.1.min.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
